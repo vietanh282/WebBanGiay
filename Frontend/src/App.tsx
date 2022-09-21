@@ -18,6 +18,8 @@ import ProductEdit from './pages/admin/Products/ProductEdit';
 import Login from './pages/User/login';
 import ManagerAccount from './pages/User/managerAccount';
 import Signup from './pages/User/Signup';
+import Cart from './pages/Website/Cart/Cart';
+import Pay from './pages/Website/Pay/Pay';
 
 function App() {
   const [products, setProducts] = useState<IProduct[]>([])
@@ -40,7 +42,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route index element={<WebLayout />} />
+        <Route path="" element={<WebLayout />} >
+          <Route path='cart' element={<Cart />} />
+          <Route path='pay' element={<Pay />} />
+        </Route>
         <Route path='login' element={<Login />} />
         <Route path='signup' element={<Signup />} />
 
@@ -57,7 +62,7 @@ function App() {
             <Route path=":id/edit" element={<CategoriesEdit />} />
           </Route>
           <Route path="user">
-            <Route index element={<ManagerAccount  />} />
+            <Route index element={<ManagerAccount />} />
             <Route path="add" element={<CategoriesAdd />} />
             <Route path=":id/edit" element={<CategoriesEdit />} />
           </Route>
@@ -67,6 +72,6 @@ function App() {
       </Routes>
     </div>
   );
-}          
+}
 
 export default App;
