@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react';
+import { animated as a, useSpring } from "react-spring";
 
 type Props = {}
 
 const ListPromoCode = (props: Props) => {
-    const [test, setTest] = useState<boolean>(
-        false
-    );
-    const login = () => {
+    const PromoCode = () => {
         return (
             
             <div className="cursor-pointer group border-dashed border-2 border-red-600 ">
@@ -21,16 +19,23 @@ const ListPromoCode = (props: Props) => {
 
         )
     }
-    const handldClick = (e: any) => {
-        setTest(!test)
-    }
-
+    const [greetingStatus, displayGreeting] = React.useState(false);
+    const contentProps = useSpring({
+        opacity: greetingStatus ? 1 : 0,
+        marginTop: greetingStatus ? 1 : -30
+    });
     return (
         <div className=' pl-10'>
             <label className="inline-flex items-center">
-                <button name='login' onClick={handldClick} >Bạn có mã ưu đãi? Ấn vào đây để nhập mã</button>
+                <button name='login' onClick={() => displayGreeting((a) => !a)} >Bạn có mã ưu đãi? Ấn vào đây để nhập mã</button>
             </label>
-            {test && login()}
+            {!greetingStatus ? (
+                <div className="Intro"></div>
+            ) : (
+                <a.div className="box" style={contentProps}>
+                    {greetingStatus && PromoCode()}
+                </a.div>
+            )}
         </div>
     )
 }

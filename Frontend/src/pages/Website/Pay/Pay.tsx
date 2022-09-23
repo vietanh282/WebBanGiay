@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { useState } from 'react';
+import { InputComponent } from './components/Input';
 import ListAddress from './components/ListAddress';
 import ListLogin from './components/ListLogin';
 import ListPromoCode from './components/ListPromoCode';
@@ -7,16 +8,13 @@ import ListSignup from './components/ListSigup';
 type Props = {}
 
 const Pay = (props: Props) => {
-    const [test, setTest] = useState<boolean>(
-        false
-    );
+
     const [transferForm, setTransferForm] = useState<any>(
         {
             payment1: false,
             payment2: false
         }
     )
-
     const cash = () => {
         return (
             <ul className="text-grey-darkest py-2 ">
@@ -35,7 +33,6 @@ const Pay = (props: Props) => {
             </ul>
         )
     }
-    
     const handldClick = (e: any) => {
         const currentRadio = e.target.name
         if (currentRadio === 'payment1') {
@@ -53,24 +50,21 @@ const Pay = (props: Props) => {
                 }
             )
         }
-        setTest(!test)
     }
-    
+
     return (
         <div className="container mx-auto mt-10">
             <ListLogin />
             <ListPromoCode />
-            <div className="flex  my-10">
-                <div className="w-3/4 bg-white px-10   ">
+            <div className="md:flex  my-10 sm:flex-none ">
+                <div className="md:w-3/4 bg-white px-10    ">
                     <form className='border-t-2 py-10'>
                         <div className="grid gap-6 mb-6 lg:grid-cols-2">
                             <div>
-                                <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Họ</label>
-                                <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nguyễn, Trần, ..." required />
+                                <InputComponent children="Họ" type="text" placeholder='Nguyễn, Trần, Lê, ...' />
                             </div>
                             <div>
-                                <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tên</label>
-                                <input type="text" id="last_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="..." required />
+                                <InputComponent children="Tên" type="text" placeholder=' ...' />
                             </div>
                         </div>
                         <div className="mb-6">
@@ -113,20 +107,16 @@ const Pay = (props: Props) => {
                             </select>
                         </div>
                         <div className="mb-6">
-                            <label htmlFor="text" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Địa chỉ </label>
-                            <input type="text" id="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Địa chỉ" required />
+                            <InputComponent children="Địa chỉ" type="text" placeholder='Địa chỉ' />
                         </div>
                         <div className="mb-6">
-                            <label htmlFor="text" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tỉnh / Thành phố *</label>
-                            <input type="text" id="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tỉnh / Thành Phố" required />
+                            <InputComponent children="Tỉnh / Thành phố *" type="text" placeholder='Tỉnh / Thành phố *' />
                         </div>
                         <div className="mb-6">
-                            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Địa chỉ Email</label>
-                            <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="...@gmail.com" required />
+                            <InputComponent children="Địa chỉ Email" type="email" placeholder='...@gmail.com' />
                         </div>
                         <div className="mb-6">
-                            <label htmlFor="" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Số điện thoại *</label>
-                            <input type="number" id="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Số điện thoại" required />
+                            <InputComponent children="Số điện thoại *" type="number" placeholder='Số Điện Thoại' />
                         </div>
                         <ListSignup />
                         <ListAddress />
@@ -138,7 +128,7 @@ const Pay = (props: Props) => {
 
                     </form>
                 </div>
-                <div id="summary" className="w-1/2 px-8 py-10 border-2 border-orange-700  h-1/2">
+                <div id="summary" className=" md:w-1/2 px-8 py-10 border-2 border-orange-700  h-1/2 sm:p-5">
                     <h1 className="font-semibold text-2xl border-b pb-8">Đơn Hàng Của Bạn</h1>
                     <div className="flex justify-between mt-10 mb-5 border-b pb-3">
                         <span className="font-semibold text-sm uppercase">Sản phẩm</span>
