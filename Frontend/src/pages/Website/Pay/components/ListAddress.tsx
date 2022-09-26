@@ -76,7 +76,7 @@ const ListAddress = (props: Props) => {
     const contentProps = useSpring({
         opacity: greetingStatus ? 1 : 0,
         marginTop: greetingStatus ? 1 : -50
-    });
+    }) as any;
     return (
         <>
             <div className=" md:flex items-start mb-6 ">
