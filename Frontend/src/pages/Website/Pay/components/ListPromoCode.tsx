@@ -23,7 +23,7 @@ const ListPromoCode = (props: Props) => {
     const contentProps = useSpring({
         opacity: greetingStatus ? 1 : 0,
         marginTop: greetingStatus ? 1 : -30
-    });
+    })  as any;
     return (
         <div className=' pl-10'>
             <label className="inline-flex items-center">
