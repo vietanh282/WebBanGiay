@@ -11,7 +11,7 @@ interface ButtonProps {
 
 
 export const CardComponents = (props: ButtonProps) => {
-    const { name, price, img, amount, total, id } = props
+    const { name, price, img, amount, total } = props
     return (
         <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
             <div className="flex w-2/5"> {/* product */}

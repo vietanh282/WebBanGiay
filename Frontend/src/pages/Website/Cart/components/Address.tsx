@@ -1,5 +1,5 @@
 import React from 'react';
-import { animated as a, useSpring } from "react-spring";
+import { animated as a, useSpring } from '@react-spring/web'
 import { ButtonComponent } from '../../../../components/button/button';
 
 type Props = {}
