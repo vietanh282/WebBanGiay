@@ -1,8 +1,7 @@
-import React from 'react'
 
 type Props = {}
 
-const ProductEdit = (props: Props) => {
+const UserEdit = (props: Props) => {
   return (
 
       <div className="mt-5 md:col-span-2 md:mt-0">
@@ -63,4 +62,4 @@ const ProductEdit = (props: Props) => {
   )
 }
 
-export default ProductEdit
+export default UserEdit

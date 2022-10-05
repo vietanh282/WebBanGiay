@@ -1,4 +1,5 @@
 import  instance  from "./instance";
+import {ICategori} from "../models/Categories"
 
 export const listCategory =() =>{
     return instance.get(`/categories`)
@@ -12,9 +13,9 @@ export const removeCategory =(id:string|number) =>{
     return instance.delete(`/categories/${id}`)
 }
 
-export const addCategory =(categori:any) =>{
+export const addCategory =(categori:ICategori) =>{
     return instance.post(`/categories`,categori)
 }
-export const updateCategory =(categori:any) =>{
+export const updateCategory =(categori:ICategori) =>{
     return instance.put(`/categories/${categori.id}`,categori)
 }

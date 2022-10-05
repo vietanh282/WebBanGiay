@@ -1,8 +1,7 @@
-import React from 'react'
 
 type Props = {}
 
-const ProductAdd = (props: Props) => {
+const UserAdd = (props: Props) => {
   return (
 
       <div className="mt-5 md:col-span-2 md:mt-0">
@@ -63,4 +62,4 @@ const ProductAdd = (props: Props) => {
   )
 }
 
-export default ProductAdd
+export default UserAdd

@@ -1,27 +1,25 @@
-import React from 'react'
 import { ButtonComponent } from '../../../components/button/button';
-import { IconRoud } from '../../../components/Icons/IconRoud';
 import { PathComponent } from '../../../components/Path/Path';
-import { IProduct } from '../../../models/Products'
+import { IUsers } from '../../../models/User';
 import { TDComponent } from '../components/td';
 import { THComponent } from '../components/th';
 
 type Props = {
-    product: IProduct[];
+    user: IUsers[];
 }
 
-const Producs = (props: Props) => {
+const Users = (props: Props) => {
     return (
         <div className="table w-full p-2">
             <div className="flex flex-nowrap p-3 m-2 bg-neutral-200">
-                <PathComponent name1='Dashboard' name2='Products' />
+                <PathComponent name1='Dashboard' name2='users' />
             </div>
             <table className="w-full border">
                 <thead>
                     <THComponent />
                 </thead>
                 <tbody>
-                    {props.product.map((item, index) => {
+                    {props.user.map((item, index) => {
                         return <>
                             <TDComponent id={index + 1}
                                 name={item.name}
@@ -40,4 +38,4 @@ const Producs = (props: Props) => {
     )
 }
 
-export default Producs
+export default Users
